@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "schema": "http://schema.org/",
+        "gse": "https://ssi.gse.com.co/credentials/",
+        "PersonalInformation": "gse:PersonalInformation",
+        "RegistryAnnotation": "gse:RegistryAnnotation",
+        "PersonalBasicInformation": "gse:PersonalBasicInformation",
+        "ProfessionalCredential": "gse:ProfessionalCredential",
+        "title": "schema:title",
+        "serialNumber": "schema:serialNumber",
+        "jobTitle": "schema:jobTitle",
+        "commissioner": "schema:Person",
+        "correction": "schema:correction",
+        "identifier": "schema:identifier",
+        "name": "schema:name",
+        "signature": "schema:gse",
+        "dateIssued": "schema:dateIssued",
+        "location": "schema:location",
+        "volume": "gse:volume",
+        "sheet": "gse:sheet",
+        "legalName": "gse:legalName",
+        "email": "schema:email",
+        "telephone": "schema:telephone",
+        "firstName": "schema:firstName",
+        "familyName": "schema:familyName",
+        "dateOfBirth": "schema:dateOfBirth",
+        "personalIdentifier": "schema:personalIdentifier",
+        "currentAddress": "schema:currentAddress",
+        "gender": "schema:gender"
+    }
+}
