@@ -134,9 +134,21 @@ where
             .decode()
             .map_err(|_| ProofValidationError::InvalidSignature)?;
 
-        let signing_bytes = detached_signing_bytes
-            .header
-            .encode_signing_bytes(prepared_claims.as_ref());
+        // ==========================================
+        // PARCHE DE INTEROPERABILIDAD:
+        // Usar el Base64 original crudo en lugar de re-serializar el header
+        // ==========================================
+        let raw_jws = proof.signature.jws.as_str(); // Extraemos el string crudo
+        let raw_header_b64 = raw_jws.split('.').next().unwrap_or(""); // Tomamos solo la parte antes del primer punto
+
+        let mut signing_bytes = raw_header_b64.as_bytes().to_vec();
+        signing_bytes.push(b'.');
+        signing_bytes.extend_from_slice(prepared_claims.as_ref());
+
+        // let signing_bytes = detached_signing_bytes
+        //     .header
+        //     .encode_signing_bytes(prepared_claims.as_ref());
+        // ==========================================
 
         let algorithm = detached_signing_bytes
             .header
